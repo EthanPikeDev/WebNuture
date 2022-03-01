@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		
-		ga('create', 'UA-111105160-3', 'auto');
-		ga('send', 'pageview');
-	</script>
+	 
     
     <title>WebNuture - Creative Agency</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -148,10 +139,28 @@
                             <div class="vc_row small text-align-center">
                                 
                                 <h2 class="has-mask" data-delay="10">Let's Talk</h2>
-                                    
-                                <!-- Contact Formular -->
-                                <div class="typeform-widget" data-url="https://ethanpike125.typeform.com/to/xExEtf" style="width: 100%; height: 500px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;"> powered by <a href="https://admin.typeform.com/signup?utm_campaign=xExEtf&utm_source=typeform.com-01E3276PJWDZEY8Z11WEKKR7BY-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>
-                                
+
+                               
+                                <!-- Contact Form -->
+                                <div>
+                                    <form action="contact.php" method="post">
+                                        <div class="elem-group">
+                                          <label for="name"></label>
+                                          <input type="text" id="name" name="visitor_name" placeholder="Name" pattern=[A-Z\sa-z]{3,20} required>
+                                        </div>
+                                        <br>
+                                        <div class="elem-group">
+                                          <label for="email"></label>
+                                          <input type="email" id="email" name="visitor_email" placeholder="Email" required>
+                                        </div>
+                                        <br>
+                                        <div class="elem-group">
+                                          <label for="message"></label>
+                                          <textarea id="message" name="visitor_message" placeholder="Say whatever you want." required></textarea>
+                                        </div>
+                                        <button class="button-content submit-box " type="submit">Send Message</button>
+                                      </form>
+                                </div>
                             </div>
                             <!--/Row -->
                             
