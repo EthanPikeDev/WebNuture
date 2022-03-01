@@ -1,27 +1,12 @@
 <?php session_start(); /* Starts the session */
-	
-	/* Check Login form submitted */	
-	if(isset($_POST['Submit'])){
-		/* Define username and associated password array */
-		$logins = array('Ethan' => '123456','username1' => 'password1','username2' => 'password2');
-		
-		/* Check and assign submitted Username and Password to new variable */
-		$Username = isset($_POST['Username']) ? $_POST['Username'] : '';
-		$Password = isset($_POST['Password']) ? $_POST['Password'] : '';
-		
-		/* Check Username and Password existence in defined array */		
-		if (isset($logins[$Username]) && $logins[$Username] == $Password){
-			/* Success: Set session variables and redirect to Protected page  */
-			$_SESSION['UserData']['Username']=$logins[$Username];
-			header("location:index.php");
-			exit;
-		} else {
-			/*Unsuccessful attempt: Set error message */
-			$msg="<span style='color:red'>Invalid Login Details</span>";
-		}
-	}
+
+if(!isset($_SESSION['UserData']['Username'])){
+	header("location:login.php");
+	exit;
+}
 ?>
-  <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	 
@@ -96,8 +81,7 @@
                                            
                                         </ul>
                                     </li>                                                               
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><span data-hover="About">About</span></a></li>           
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="account.html"><span data-hover="Account">Account</span></a></li>               
+                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><span data-hover="About">About</span></a></li>                        
                                     <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="contact.html"><span data-hover="Contact">Contact</span></a></li>
                                                    
                                 </ul>            
@@ -132,13 +116,15 @@
                         <div id="hero-styles" class="parallax-onscroll">
                             <div id="hero-caption">
                                 <div class="inner text-align-center">
-                                    <div class="hero-subtitle">Get in touch</div> 
+                                    <div class="hero-subtitle"></div> 
                                     <div class="hero-title">
-                                        <span>L</span>
+                                        <span>A</span>
+                                        <span>C</span>
+                                        <span>C</span>
                                         <span>O</span>
-                                        <span>G</span>
-                                        <span>I</span>
+                                        <span>U</span>
                                         <span>N</span>
+                                        <span>T</span>	
                                     </div>                                
                                 </div>
                             </div>                                            
@@ -160,38 +146,10 @@
                             <!-- Row -->
                             <div class="vc_row small text-align-center">
                                 
-                                <h2 class="has-mask" data-delay="10">Login to your account to view your information.</h2>
-
-                                <!-- insert PHP login form-->
-                                
+                                <h2 class="has-mask" data-delay="10">Your Profile information</h2>
 
                                
-                                <!-- Contact Form -->
-                                <form action="login.php" method="post" name="Login_Form">
-                                    <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
-                                      <?php if(isset($msg)){?>
-                                      <tr>
-                                        <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
-                                      </tr>
-                                      <?php } ?>
-                                      <tr>
-                                        <td colspan="2" align="left" valign="top"><h3>Login</h3></td>
-                                      </tr>
-                                      <tr>
-                                        <td align="right" valign="top">Username</td>
-                                        <td><input name="Username" type="text" class="Input"></td>
-                                      </tr>
-                                      <tr>
-                                        <td align="right">Password</td>
-                                        <td><input name="Password" type="password" class="Input"></td>
-                                      </tr>
-                                      <tr>
-                                        <td> </td>
-                                        <td><input name="Submit" type="submit" value="Login" class="Button3"></td>
-                                      </tr>
-                                    </table>
-                                  </form>
-                            <!--/Row -->
+								<p>Congratulations! You have logged into password protected page. <a style="color: white;" href="logout.php">Click here</a> to Logout.</p>
                             
                             <!-- Row -->
                             <div class="vc_row text-align-center row_padding_top small">
@@ -335,3 +293,5 @@
 </body>
 
 </html>
+
+
